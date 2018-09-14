@@ -58,7 +58,7 @@ namespace Demo
             }
         }
 
-        virtual public void Input(StreamReader sr)
+        public override void Input(StreamReader sr)
         {
             String line;
             double number;
@@ -81,7 +81,7 @@ namespace Demo
             {
                 throw new ArgumentNullException();
             }
-
+            
         }
 
         public override void Print()

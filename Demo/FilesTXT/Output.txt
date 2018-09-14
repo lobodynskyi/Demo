@@ -4,3 +4,5 @@ Orange	E	65
 v	u	65
 Nazar1	Black
 Nazar3	Black
+Nazar1	Black
+Nazar3	Black

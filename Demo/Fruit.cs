@@ -58,7 +58,7 @@ namespace Demo
             {
                 throw new ArgumentNullException();
             }
-
+            
         }
 
         virtual public void Print()

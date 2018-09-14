@@ -55,6 +55,7 @@
   <ItemGroup>
     <Content Include="FilesTXT\IntputFruits.txt" />
     <Content Include="FilesTXT\Output.txt" />
+    <Content Include="FilesTXT\sertest.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
