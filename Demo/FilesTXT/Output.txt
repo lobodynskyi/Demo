@@ -6,3 +6,7 @@ Nazar1	Black
 Nazar3	Black
 Nazar1	Black
 Nazar3	Black
+Orange	Black
+Banana	Black
+Orange	Black
+Banana	Black

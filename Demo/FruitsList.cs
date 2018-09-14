@@ -36,8 +36,7 @@ namespace Demo
 
         public void OutputToFile(string filePass, bool isOverwrite)
         {
-            filePass = Path.GetFullPath(filePass);
-            filePass = filePass.Replace("\\bin\\Debug", "");
+
             using (StreamWriter sw = new StreamWriter(filePass, isOverwrite, System.Text.Encoding.Default))
             {
                 foreach (var item in fruits)
@@ -47,6 +46,16 @@ namespace Demo
             }
         }
 
+        public void Find(string keyWord)
+        {
+            foreach (var item in fruits)
+            {
+                if(item.Name == keyWord)
+                {
+                    item.Print();
+                }
+            }
+        }
 
     }
 }
