@@ -1,0 +1,6 @@
+A	B
+c	r
+Orange	E	65
+v	u	65
+Nazar1	Black
+Nazar3	Black
