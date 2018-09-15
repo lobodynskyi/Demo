@@ -45,7 +45,7 @@
     <Compile Include="Citrus.cs" />
     <Compile Include="Fruit.cs" />
     <Compile Include="FruitsList.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="MainClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,9 +53,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="FilesTXT\IntputFruits.txt" />
-    <Content Include="FilesTXT\Output.txt" />
-    <Content Include="FilesTXT\sertest.xml" />
+    <Content Include="Files\Fruits.xml" />
+    <Content Include="Files\IntputCitrus.txt" />
+    <Content Include="Files\IntputFruits.txt" />
+    <Content Include="Files\Output.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

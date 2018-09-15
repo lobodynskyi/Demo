@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Demo
 {
-   
+
     [Serializable]
     public class Citrus : Fruit
     {
@@ -43,17 +43,20 @@ namespace Demo
         {
             Console.WriteLine("Please enter fruit name");
             Name = Console.ReadLine();
+
             Console.WriteLine("Please enter fruit color");
             Color = Console.ReadLine();
+
             Console.WriteLine("Please enter the content Of vitamin C in gram");
             string numberToParse = Console.ReadLine();
             double number;
-            if( Double.TryParse(numberToParse, out number ))
+            if (Double.TryParse(numberToParse, out number))
             {
                 contentOfVitamin_C_IN_G = number;
-            }else
+            }
+            else
             {
-                Console.WriteLine("Unable to parse '{0}'.", number);
+                Console.WriteLine("Unable to parse '{0}'.", numberToParse);
                 ContentOfVitamin_C_IN_G = null;
             }
         }
@@ -62,26 +65,43 @@ namespace Demo
         {
             String line;
             double number;
+
             if ((line = sr.ReadLine()) != null)
             {
                 string[] tab = line.Split('\t');
                 Name = tab[0];
-                Color = tab[1];
-                if (Double.TryParse(tab[2], out number))
+
+                try
                 {
-                    contentOfVitamin_C_IN_G = number;
+                    Color = tab[1];
                 }
-                else
+                catch (IndexOutOfRangeException e)
                 {
-                    Console.WriteLine("Unable to parse '{0}'.", tab[2]);
+                    Color = string.Empty;
                     ContentOfVitamin_C_IN_G = null;
+                    Console.WriteLine(e.Message + "\tCitrus without color and number ->" + this);
+                }
+
+                try
+                {
+                    if (Double.TryParse(tab[2], out number))
+                    {
+                        contentOfVitamin_C_IN_G = number;
+                    }
+                    else
+                    {
+                        
+                        Console.WriteLine("Unable to parse '{0}'.", tab[2]);
+                        ContentOfVitamin_C_IN_G = null;
+                    }
+                }catch (IndexOutOfRangeException e)
+                {
+                    ContentOfVitamin_C_IN_G = null;
+                    Console.WriteLine(e.Message + "\tCitrus without number ->" + this);
                 }
             }
-            else
-            {
-                throw new ArgumentNullException();
-            }
-            
+
+
         }
 
         public override void Print()
@@ -91,7 +111,7 @@ namespace Demo
 
         virtual public void Print(StreamWriter sw)
         {
-            sw.WriteLine(ToString());
+            sw.WriteLine(this);
         }
 
         public override string ToString()

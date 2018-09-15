@@ -1,0 +1,8 @@
+Avocado	Aqua
+Blackberry	Black
+Kiwi	Aqua
+Watermelon	Green
+Pineapple	Aureolin
+Peach	Coral
+Grape	Green
+Apple

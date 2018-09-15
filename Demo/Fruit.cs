@@ -49,16 +49,22 @@ namespace Demo
         virtual public void Input(StreamReader sr)
         {
             String line;
+           
             if ((line = sr.ReadLine()) != null)
             {
-                string[] tab = line.Split('\t');
+                
+                string[] tab = line.Split('\t');               
                 Name = tab[0];
-                Color = tab[1];
-            }else
-            {
-                throw new ArgumentNullException();
+                try
+                {
+                    Color = tab[1];
+                }
+                catch (IndexOutOfRangeException e)
+                {
+                    Color = string.Empty;
+                    Console.WriteLine(e.Message + "\tFruit without color ->" + this);
+                }
             }
-            
         }
 
         virtual public void Print()
@@ -68,7 +74,7 @@ namespace Demo
 
         virtual public void Print(StreamWriter sw)
         {
-            sw.WriteLine(ToString());
+            sw.WriteLine(this);
         }
 
         public Fruit(string name, string color)

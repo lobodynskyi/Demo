@@ -1,0 +1,5 @@
+Calamondin	Yellow	0,12
+Citron	Yellow	0,32
+Etrog	DarkOliveGreen	null
+Kabosu	ForestGreen
+Grapefruit	Coquelicot
