@@ -71,6 +71,7 @@ namespace Demo
 
             Console.WriteLine("\n\n\t\tList after deserialization\n\n");
 
+
             foreach (var item in fruitsDeserialized)
             {
                 item.Print();
