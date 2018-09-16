@@ -41,10 +41,10 @@ namespace Demo
 
         public override void Input()
         {
-            Console.WriteLine("Please enter fruit name");
+            Console.WriteLine("Please enter citrus name");
             Name = Console.ReadLine();
 
-            Console.WriteLine("Please enter fruit color");
+            Console.WriteLine("Please enter citrus color");
             Color = Console.ReadLine();
 
             Console.WriteLine("Please enter the content Of vitamin C in gram");

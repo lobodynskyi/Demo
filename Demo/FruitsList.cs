@@ -52,7 +52,7 @@ namespace Demo
                         item.Print(sw);
                     }
                 }
-            }catch(FileNotFoundException e)
+            }catch(Exception e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -63,14 +63,20 @@ namespace Demo
             fruits.Sort();
         }
 
-        public void Find(string keyColor)
-        {      
+        public void Find(string keyWordColor)
+        {
+            bool flag = true;
             foreach (var item in fruits)
             {
-                if(string.Equals(item.Color, keyColor, StringComparison.OrdinalIgnoreCase))
+                if(string.Equals(item.Color, keyWordColor, StringComparison.OrdinalIgnoreCase))
                 {
                     item.Print();
+                    flag = false;
                 }
+            }
+            if(flag == true)
+            {
+                Console.WriteLine("No fruits with color" + keyWordColor);
             }
         }
 
@@ -84,10 +90,6 @@ namespace Demo
                     formatter.Serialize(fs, fruits);
                     Console.WriteLine("\n\n\t\tFruits was serialize");
                 }
-            }
-            catch(FileNotFoundException e)
-            {
-                Console.WriteLine(e.Message);
             }catch (Exception e)
             {
                 Console.WriteLine(e.Message);

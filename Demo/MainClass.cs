@@ -13,9 +13,17 @@ namespace Demo
     {
         static string GetPath(string path)
         {
-            path = Path.GetFullPath(path);
-            path = path.Replace("\\bin\\Debug", "\\Files\\");
-            return path;
+            try
+            {
+                path = Path.GetFullPath(path);
+                path = path.Replace("\\bin\\Debug", "\\Files\\");
+                return path;
+            }
+            catch(ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return string.Empty;
         }
 
         static void Main(string[] args)
@@ -70,7 +78,6 @@ namespace Demo
             List<Fruit> fruitsDeserialized = fruitsList.Deserialize(GetPath("Fruits.xml"));
 
             Console.WriteLine("\n\n\t\tList after deserialization\n\n");
-
 
             foreach (var item in fruitsDeserialized)
             {
