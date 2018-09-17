@@ -9,11 +9,20 @@ using System.Threading.Tasks;
 namespace Demo
 {
     [TestFixture]
-    class DemoTest
+    class DemoTests
     {
+        [Test]
+        public void ToString()
+        {
+            Fruit fruit = new Fruit("Banana", "Yellow");
+            var actual = fruit.ToString();
+            var expected = "Banana\tYellow";
+            Assert.AreEqual(actual, expected);
+        }
+
 
         [Test, Order(1)]
-        public void Deserialization()
+        public void Deserialization_Exception_EmptyList()
         {
             FruitsList fruits = new FruitsList();
             var actual = fruits.Deserialize("file.txt");
@@ -24,7 +33,7 @@ namespace Demo
 
         [TestCase("Orange")]
         [TestCase("orange")]
-        public void Find_Positive(string keyWordColor)
+        public void Find_PositiveTest(string keyWordColor)
         {
             using (StringWriter sw = new StringWriter())
             {
@@ -44,7 +53,7 @@ namespace Demo
         }
 
         [TestCase("Black")]
-        public void Find_Uncorrect(string keyWordColor)
+        public void Find_NegativeTest(string keyWordColor)
         {
             using (StringWriter sw = new StringWriter())
             {
@@ -55,7 +64,7 @@ namespace Demo
                 fruits.fruits.Add(new Fruit("Orange", "Orange"));
                 fruits.Find(keyWordColor);
 
-                string expected = "No fruits with color" + keyWordColor + "\r\n";
+                string expected = "No fruits with color: " + keyWordColor + "\r\n";
                 string actual = sw.ToString();
                 sw.Close();
 
@@ -64,7 +73,7 @@ namespace Demo
         }
 
         [Test]
-        public void OutputToFile_Exception()
+        public void OutputToFile_Exception_NoFileExist()
         {
             using (StringWriter sw = new StringWriter())
             {
@@ -82,7 +91,7 @@ namespace Demo
         }
 
         [Test]
-        public void Deserialize_Exception()
+        public void Deserialize_Exception_NoFileExist()
         {
             using (StringWriter sw = new StringWriter())
             {
@@ -103,8 +112,6 @@ namespace Demo
         [TestCase("Banana", "Yellow", "0,05")]
         public void CitrusInputPrint(string name, string color, string ContentOfVitamin_C_IN_G)
         {
-
-
             using (StringWriter sw = new StringWriter())
             {
                 Console.SetOut(sw);
@@ -131,8 +138,6 @@ namespace Demo
         [TestCase("Banana", "Yellow", "0,05q")]
         public void CitrusInputPrint_Exception(string name, string color, string ContentOfVitamin_C_IN_G)
         {
-
-
             using (StringWriter sw = new StringWriter())
             {
                 Console.SetOut(sw);

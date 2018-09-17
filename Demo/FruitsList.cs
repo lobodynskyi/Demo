@@ -26,6 +26,10 @@ namespace Demo
             this.fruits = fruits;
         }
 
+
+        /// <summary>
+        /// Fill list with data
+        /// </summary>
         public void FillWithData()
         {
             fruits.Add(new Fruit("Apple", "Red"));
@@ -41,6 +45,11 @@ namespace Demo
             fruits.Add(new Citrus("Tangor", "Orange", 0.1));
         }
 
+
+        /// <summary>
+        /// Write all list data to file
+        /// </summary>
+        /// <param name="filePath"> Path to file</param>
         public void OutputToFile(string filePath)
         {
             try
@@ -63,6 +72,10 @@ namespace Demo
             fruits.Sort();
         }
 
+        /// <summary>
+        ///Return fruits with color wich been set in parameter
+        /// </summary>
+        /// <param name="keyWordColor"></param>
         public void Find(string keyWordColor)
         {
             bool flag = true;
@@ -76,7 +89,7 @@ namespace Demo
             }
             if(flag == true)
             {
-                Console.WriteLine("No fruits with color" + keyWordColor);
+                Console.WriteLine("No fruits with color: " + keyWordColor);
             }
         }
 
@@ -101,7 +114,7 @@ namespace Demo
             XmlSerializer formatter = new XmlSerializer(typeof(List<Fruit>));
             try
             {
-                using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate))
+                using (FileStream fs = new FileStream(fileName, FileMode.Open ))
                 {
                     Console.WriteLine("\n\n\t\tFruits was deserialize");
                     return formatter.Deserialize(fs) as List<Fruit>;

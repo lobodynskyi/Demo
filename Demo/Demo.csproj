@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Citrus.cs" />
-    <Compile Include="DemoTest.cs" />
+    <Compile Include="Tests\DemoTests.cs" />
     <Compile Include="Fruit.cs" />
     <Compile Include="FruitsList.cs" />
     <Compile Include="MainClass.cs" />
